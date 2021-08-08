@@ -18,15 +18,23 @@ function getPrices(){
             coins.map(coin => {
                 catalog.innerHTML += `
                 <li> 
-                   ${coin.name} 
+                   <a href="#" data-id= "${coin.id}">${coin.name}</a> 
                 </li>`
-           
+          
         })
-
+        clickLink()
     })
 
-        
-    
+    }
 
-    console.log(fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=24h`))
+    function clickLink(){
+        const coins = document.querySelectorAll('li a')
+        coins.forEach(coin =>{
+            coin.addEventListener('click', displayCoins)
+        })
+
+    }
+    
+async function displayCoins(event){
+    console.log(event.target)
 }

@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 
 function getPrices(){
-    //get prices from Coingecko API
+    //get to individual coins from Coingecko API
     let info = document.getElementById('info ul')
     let coinList = document.getElementById('coin-info')
     let catalog = document.getElementById('catalog')
@@ -54,3 +54,18 @@ async function displayCoins(event){
         })
 
 }
+
+let likebtn = document.querySelector('#likebtn');
+let dislikebtn = document.querySelector('#dislikebtn');
+let input1 = document.querySelector('#input1');
+let input2 = document.querySelector('#input2');
+
+likebtn.addEventListener('click',()=>{
+    input1.innerHTML = parseInt(input1.innerHTML) + 1;
+    input1.style.color = "#12ff00"
+})
+
+dislikebtn.addEventListener('click',()=>{
+    input2.innerHTML = parseInt(input2.innerHTML) + 1;
+    input2.style.color = "#ff0000"
+})

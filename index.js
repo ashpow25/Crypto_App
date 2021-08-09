@@ -4,7 +4,8 @@ const START_URL = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=us
 
 document.addEventListener('DOMContentLoaded', () => {
     //callback listener that fetches the cryptos & when the DOM loads, displays automatically
-getPrices()
+    document.getElementById('rate').addEventListener('click', getPrices)
+    getPrices()
 })
 
 function getPrices(){
@@ -12,6 +13,8 @@ function getPrices(){
     let info = document.getElementById('info ul')
     let coinList = document.getElementById('coin-info')
     let catalog = document.getElementById('catalog')
+    coinList.innerHTML = ""
+    catalog.innerHTML = ""
     fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=24h`)
         .then(response => response.json())
         .then (coins => {
@@ -35,12 +38,12 @@ function getPrices(){
 
     }
     
-async function displayCoins(e){
-    console.log(e.target)
+async function displayCoins(event){
+    console.log(event.target)
     let coinList = document.getElementById('coin-info')
     let catalog = document.getElementById('catalog')
     catalog.innerHTML= ""
-    fetch(`https://api.coingecko.com/api/v3/coins/${e.target.dataset.id}`)
+    fetch(`https://api.coingecko.com/api/v3/coins/${event.target.dataset.id}`)
        .then(response => response.json())
         .then(coin => {
             coinList.innerHTML +=`

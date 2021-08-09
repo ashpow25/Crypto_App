@@ -4,27 +4,35 @@
 
 <html>
     <head>
+        <script src="https://kit.fontawesome.com/a780d89284.js" crossorigin="anonymous"></script>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>TOP 100 CRYPTOS</title>
+        <link rel="stylesheet" href="">
         <meta name="Crypto Pricing" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="index.css">
     </head>
     <body>
         <h1>Top 100 Cryptocurrencies</h1>
-        <button id="rate">Click Here for the Rate</button>
-        <hr>
-        <br>
+        <button id="rate">View All Coins and Tokens</button>
         <div id="info">
             <ul id= "catalog">
-
             </ul>
             <div id="coin-info">
-
             </div>
             <div class="container">
                 <h2>Are you feeling Bullish on Crypto?</h2>
+                <div  class = "voting">
+                   <button id="likebtn"> 
+                       <i class="fa fa-thumbs-up"></i>
+                   </button>
+                   <div class="count" id="input1" value="0" name="">0</div>
+                   <button id ="dislikebtn">
+                       <i class="fa fa-thumbs-down"></i>
+                    </button>
+                    <div class="count" id="input2" value="0" name="">0</div>
+                </div>
         </div>
 
 
@@ -36,3 +44,20 @@
         <script src="index.js" ></script>
     </body>
 </html>
+
+<script type="text/javascript">
+let likebtn = document.querySelector('#likebtn');
+let dislikebtn = document.querySelector('#dislikebtn');
+let input1 = document.querySelector('#input1');
+let input2 = document.querySelector('#input2');
+
+likebtn.addEventListener('click',()=>{
+    input1.innerHTML = parseInt(input1.innerHTML) + 1;
+    input1.style.color = "#12ff00"
+})
+
+dislikebtn.addEventListener('click',()=>{
+    input2.innerHTML = parseInt(input2.innerHTML) + 1;
+    input2.style.color = "#ff0000"
+})
+</script>

@@ -18,7 +18,7 @@ function getPrices(){
             coins.map(coin => {
                 catalog.innerHTML += `
                 <li> 
-                   <a href="#" data-id= "${coin.id}">${coin.name}</a> 
+                   <a href="#" data-roi="${coin.ath}" data-id= "${coin.id}">${coin.name}</a> 
                 </li>`
           
         })
@@ -35,6 +35,19 @@ function getPrices(){
 
     }
     
-async function displayCoins(event){
-    console.log(event.target)
+async function displayCoins(e){
+    console.log(e.target)
+    let coinList = document.getElementById('coin-info')
+    let catalog = document.getElementById('catalog')
+    catalog.innerHTML= ""
+    fetch(`https://api.coingecko.com/api/v3/coins/${e.target.dataset.id}`)
+       .then(response => response.json())
+        .then(coin => {
+            coinList.innerHTML +=`
+            <h1>${coin.name}</h1>
+            <h3>Current Price</h3>
+            <h4>$${coin.market_data.current_price.usd} USD</h4>`
+            
+        })
+
 }

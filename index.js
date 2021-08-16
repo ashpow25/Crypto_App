@@ -10,9 +10,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function getPrices(){
     //get to individual coins from Coingecko API
-    let info = document.getElementById('info ul')
-    let coinList = document.getElementById('coin-info')
-    let catalog = document.getElementById('catalog')
+    //let info = document.getElementById('info ul')
+    const coinList = document.getElementById('coin-info')
+    const catalog = document.getElementById('catalog')
     coinList.innerHTML = ""
     catalog.innerHTML = ""
     fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=24h`)
